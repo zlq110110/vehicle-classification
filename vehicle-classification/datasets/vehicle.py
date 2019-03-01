@@ -28,8 +28,8 @@ import tensorflow as tf
 from datasets import dataset_utils
 
 slim = tf.contrib.slim
-
-_FILE_PATTERN = 'vehicle_%s_*.tfrecord' 
+#以下需要修改为目标数据集的参数：
+_FILE_PATTERN = 'pj_vehicle_%s_*.tfrecord' 
 
 SPLITS_TO_SIZES = {'train': 43971, 'validation': 4885}
 
@@ -37,9 +37,9 @@ _NUM_CLASSES = 764
 
 _ITEMS_TO_DESCRIPTIONS = {
     'image': 'A color image of varying size.',
-    'label': 'A single integer between 0 and 99',
+    'label': 'A single integer between 0 and 763',
 }
-
+#修改到此处结束。
 
 def get_split(split_name, dataset_dir, file_pattern=None, reader=None):
     """Gets a dataset tuple with instructions for reading flowers.
@@ -97,4 +97,3 @@ def get_split(split_name, dataset_dir, file_pattern=None, reader=None):
         items_to_descriptions=_ITEMS_TO_DESCRIPTIONS,
         num_classes=_NUM_CLASSES,
         labels_to_names=labels_to_names)
-
