@@ -19,6 +19,10 @@ from __future__ import print_function
 
 import os
 import sys
+#标签为中文而添加如下代码
+import importlib
+importlib.reload(sys)
+
 import tarfile
 
 from six.moves import urllib
